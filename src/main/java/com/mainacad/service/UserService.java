@@ -5,6 +5,7 @@ import com.mainacad.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,5 +38,17 @@ public class UserService {
             return userDAO.save(user);
         }
         return null;
+    }
+
+    public List<User> getAll() {
+        return userDAO.findAll();
+    }
+
+    public void delete(User user) {
+        userDAO.delete(user);
+    }
+
+    public void delete(Integer id) throws RuntimeException{
+        userDAO.deleteById(id);
     }
 }
