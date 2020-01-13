@@ -3,6 +3,7 @@ package com.mainacad.dao;
 import com.mainacad.AppRunner;
 import com.mainacad.model.User;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -33,5 +34,12 @@ class UserDAOTest {
         assertTrue(foundUser.size() == 1);
 
         assertEquals(foundUser.get(0).getFirstName(), savedUser.getFirstName());
+
+        try {
+            userDAO.deleteById(Integer.MAX_VALUE);
+            fail();
+        } catch (Exception e) {
+            assertTrue( e instanceof RuntimeException );
+        }
     }
 }
