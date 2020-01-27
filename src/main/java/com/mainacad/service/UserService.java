@@ -2,6 +2,7 @@ package com.mainacad.service;
 
 import com.mainacad.dao.UserDAO;
 import com.mainacad.model.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
