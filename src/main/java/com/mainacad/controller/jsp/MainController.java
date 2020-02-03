@@ -1,4 +1,4 @@
-package com.mainacad.controller;
+package com.mainacad.controller.jsp;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;

@@ -7,7 +7,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableScheduling
-//@EnableSwagger2
+@EnableSwagger2
 public class AppRunner {
 
 	public static void main(String[] args) {

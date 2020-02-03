@@ -1,4 +1,4 @@
-package com.mainacad.controller;
+package com.mainacad.controller.jsp;
 
 import com.mainacad.model.User;
 import com.mainacad.service.UserService;
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller("user")
+@Controller
 @Profile("jsp")
+@RequestMapping("user")
 public class UserJspController {
 
     @Autowired
