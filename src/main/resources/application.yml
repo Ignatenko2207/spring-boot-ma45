@@ -1,13 +1,14 @@
-custom:
-  connectionTimeout: 10000
-
 spring:
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /WEB-INF/jsp/
   datasource:
-    url: "jdbc:postgresql://localhost:5432/spring_ma45"
+    url: jdbc:postgresql://localhost:5432/spring_ma45
     username: "postgres"
     password: "248842"
     hikari:
-      connectionTimeout: ${custom.connectionTimeout:20000}
+      connectionTimeout: 20000
       maximumPoolSize: 5
       driver-class-name: "org.postgresql.Driver"
   jpa:

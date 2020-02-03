@@ -15,7 +15,6 @@ import javax.annotation.PostConstruct;
 @Configuration
 public class SpringConfig {
 
-    @Value("${spring.datasource.url}")
-    private String dbURL;
+
 
 }
