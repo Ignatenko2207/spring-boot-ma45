@@ -1,5 +1,6 @@
-package com.mainacad.controller;
+package com.mainacad.controller.rest;
 
+import com.mainacad.AppRunner;
 import com.mainacad.model.User;
 import com.mainacad.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -13,22 +14,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
-import org.springframework.web.util.UriBuilder;
-import org.springframework.web.util.UriUtils;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("json")
+@ActiveProfiles("rest")
 class UserControllerTest {
 
     @MockBean
