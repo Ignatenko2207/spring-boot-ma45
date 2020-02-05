@@ -18,8 +18,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringJUnitConfig(AppRunner.class)
-@EnableAutoConfiguration(exclude= FlywayAutoConfiguration.class)
-@ActiveProfiles("rest")
+@ActiveProfiles("test")
 class UserDAOTest {
 
     @Autowired
