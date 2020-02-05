@@ -6,7 +6,7 @@
     <title>Logined Page</title>
 </head>
 <body>
-<h1>Hello, ${name} ${surname}!!!</h1>
+<h2>Hello, ${firstName} ${lastName}!!!</h2>
 <br>
 </body>
 </html>

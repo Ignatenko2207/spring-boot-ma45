@@ -6,8 +6,7 @@
     <title>Main Page</title>
 </head>
 <body>
-<h1>Your login or password are wrong!!!
-</h1>
+<h2>${message}</h2>
 <br>
 <form action="/user/auth" method="post">
     <input type="text" size="30" name="login" required />
