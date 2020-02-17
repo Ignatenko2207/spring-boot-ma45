@@ -19,12 +19,12 @@ public class CurrencyExtractionService {
     private List<String> list = Collections.synchronizedList(new ArrayList<>());
     private AtomicLong extractionTime = new AtomicLong(new Date().getTime());
 
-//    @Scheduled(cron = "0-59/2 * * * * *")
+    @Scheduled(cron = "0-59/2 * * * * *")
     public void getUkrNetResponse() {
          list.add(String.valueOf(new Date().getTime()));
     }
 
-//    @Scheduled(initialDelay = 1000, fixedDelay = 20000)
+    @Scheduled(initialDelay = 1000, fixedDelay = 20000)
     public void writeData() {
         if (list.isEmpty()) {
             return;
