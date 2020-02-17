@@ -21,3 +21,9 @@ spring:
     hibernate:
       ddl-auto: update
   flyway.baseline-on-migrate: true
+
+no-sql:
+  mongo:
+    name: local
+    host: localhost
+    port: 27017
