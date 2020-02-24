@@ -15,6 +15,10 @@ public class UserService {
     @Autowired
     UserDAO userDAO;
 
+    public User getByLogin(String login) {
+        return userDAO.getFirstByLogin(login);
+    }
+
     public User getByLoginAndPassword(String login, String password) {
         return userDAO.getFirstByLoginAndPassword(login, password);
     }
