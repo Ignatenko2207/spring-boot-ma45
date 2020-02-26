@@ -1,11 +1,9 @@
 package com.mainacad.controller.jsp;
 
 import com.mainacad.model.User;
-import com.mainacad.model.security.AuthUser;
 import com.mainacad.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +16,6 @@ public class UserJspController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    UserDetailsService userDetailsService;
-
     @GetMapping("registration")
     public String save(Model model) {
         return "registration";
@@ -28,14 +23,14 @@ public class UserJspController {
 
     @PutMapping()
     public String save(Model model,
-                              @RequestParam(value="login") String login,
-                              @RequestParam(value="pass") String password,
-                              @RequestParam(value="firstName") String firstName,
-                              @RequestParam(value="lastName") String lastName) {
+                       @RequestParam(value = "login") String login,
+                       @RequestParam(value = "pass") String password,
+                       @RequestParam(value = "firstName") String firstName,
+                       @RequestParam(value = "lastName") String lastName) {
 
 
         User user = userService.save(new User(login, password, firstName, lastName));
-        if (user != null){
+        if (user != null) {
             model.addAttribute("userId", user.getId());
             model.addAttribute("firstName", user.getFirstName());
             model.addAttribute("lastName", user.getLastName());
@@ -48,12 +43,11 @@ public class UserJspController {
 
     @PostMapping("auth")
     public String getAuthUser(Model model,
-                              @RequestParam(value="login") String login,
-                              @RequestParam(value="pass") String password) {
+                              @RequestParam(value = "login") String login,
+                              @RequestParam(value = "pass") String password) {
 
         User user = userService.getByLoginAndPassword(login, password);
-        if (user != null){
-            userDetailsService.loadUserByUsername(user.getLogin());
+        if (user != null) {
             model.addAttribute("userId", user.getId());
             model.addAttribute("firstName", user.getFirstName());
             model.addAttribute("lastName", user.getLastName());

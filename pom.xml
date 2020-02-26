@@ -73,11 +73,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--SPRING-SECURITY-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;SPRING-SECURITY&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
 
         <!--SPRING-EMBEDED-TOMCAT for jsp usage-->
         <dependency>
