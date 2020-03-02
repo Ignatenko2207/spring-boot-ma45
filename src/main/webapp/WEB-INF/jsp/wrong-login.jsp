@@ -11,7 +11,7 @@
 <form action="/user/auth" method="post">
     <input type="text" size="30" name="login" required />
     <br>
-    <input type="password" size="30" name="pass" required />
+    <input type="password" size="30" name="password" required />
     <br>
     <input type="submit" value="LOGIN"/>
 </form>

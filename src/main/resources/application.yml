@@ -1,4 +1,7 @@
 spring:
+  management:
+    security:
+      enabled: false
   mvc:
     view:
       suffix: .jsp
@@ -21,6 +24,8 @@ spring:
     hibernate:
       ddl-auto: update
   flyway.baseline-on-migrate: true
+  profiles:
+    active: rest
 
 no-sql:
   mongo:
