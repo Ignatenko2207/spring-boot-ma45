@@ -6,33 +6,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Profile("jsp")
-@RequestMapping("user")
-public class UserJspController {
+@RequestMapping("/auth")
+public class AuthController {
 
     @Autowired
     UserService userService;
 
-    @PutMapping()
-    public String save(Model model,
-                       @RequestParam(value = "login") String login,
-                       @RequestParam(value = "password") String password,
-                       @RequestParam(value = "firstName") String firstName,
-                       @RequestParam(value = "lastName") String lastName) {
+    @PostMapping("login")
+    public String getAuthUser(Model model,
+                              @RequestParam(value = "login") String login,
+                              @RequestParam(value = "password") String password) {
 
-
-        User user = userService.save(new User(login, password, firstName, lastName));
+        User user = userService.getByLoginAndPassword(login, password);
         if (user != null) {
             model.addAttribute("userId", user.getId());
             model.addAttribute("firstName", user.getFirstName());
             model.addAttribute("lastName", user.getLastName());
             return "user-cabinet";
         } else {
-            model.addAttribute("message", "Sorry, but this login exists");
-            return "registration";
+            model.addAttribute("message", "Login or password are wrong!");
+            return "wrong-login";
         }
     }
 
