@@ -2,8 +2,8 @@ package com.mainacad.controller.rest;
 
 import com.mainacad.model.User;
 import com.mainacad.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JacksonJsonParser;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
@@ -16,10 +16,10 @@ import java.util.Map;
 @Profile("rest")
 @RestController
 @RequestMapping("user")
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
     @PutMapping
     public ResponseEntity save(@RequestBody User user) {
@@ -49,17 +49,18 @@ public class UserController {
         return new ResponseEntity(user, HttpStatus.OK);
     }
 
-    @GetMapping({"", "{id}"})
-    public ResponseEntity getUser(@PathVariable(required = false) Integer id) {
-        if (id != null) {
+    @GetMapping("/{id}")
+    public ResponseEntity getUserById(@PathVariable Integer id) {
             User user = userService.getById(id);
             if (user == null) {
                 return new ResponseEntity(HttpStatus.NOT_FOUND);
             }
             return new ResponseEntity(user, HttpStatus.OK);
-        } else {
-            return new ResponseEntity(userService.getAll(), HttpStatus.OK);
-        }
+    }
+
+    @GetMapping
+    public ResponseEntity getUser() {
+        return new ResponseEntity(userService.getAll(), HttpStatus.OK);
     }
 
     @DeleteMapping
