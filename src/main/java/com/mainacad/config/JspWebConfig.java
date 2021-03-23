@@ -16,7 +16,6 @@ public class JspWebConfig implements WebMvcConfigurer {
     public void addViewControllers (ViewControllerRegistry registry) {
         registry.addViewController("/registration").setViewName("registration");
         registry.addViewController("/user-cabinet").setViewName("user-cabinet");
-        registry.addViewController("/").setViewName("authorization");
     }
 
     @Override
